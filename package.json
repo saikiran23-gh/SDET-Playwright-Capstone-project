@@ -1,0 +1,30 @@
+{
+  "name": "project-capstone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "test": "playwright test",
+  "test:ci": "playwright test",
+  "allure:generate": "allure generate allure-results --clean -o allure-report",
+  "allure:open": "allure open allure-report"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saikiran23-gh/SDET-Playwright-Capstone-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/saikiran23-gh/SDET-Playwright-Capstone-project/issues"
+  },
+  "homepage": "https://github.com/saikiran23-gh/SDET-Playwright-Capstone-project#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.0",
+    "allure-commandline": "^2.42.0",
+    "allure-playwright": "^3.9.0"
+  }
+}
