@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
 
 
-//1st testcase-- checking that compare products page opens...
+// //1st testcase-- checking that compare products page opens...
   test('opening compare products page', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/compareproducts');
     await expect(page.locator('h1')).toContainText('Compare products');
@@ -11,7 +11,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
   });
 
 
-//2nd testcase--- checking that the compare products page url...
+// //2nd testcase--- checking that the compare products page url...
   test('compare products page URL', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/compareproducts');
     await expect(page).toHaveURL(/compareproducts/);
@@ -19,7 +19,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
   });
 
 
-//3rd testcase--- checking empty compare list message...
+// //3rd testcase--- checking empty compare list message...
   test(' empty compare list message', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/compareproducts');
     await expect(page.locator('.no-data')).toBeVisible();
@@ -27,7 +27,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
   });
 
 
-//4th testcase--- checking books page has compare button..........
+// //4th testcase--- checking books page has compare button..........
   test('books page has compare button', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('.add-to-compare-list-button').first()).toBeVisible();
@@ -35,7 +35,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
   });
 
 
-//5th testcase---checking compare button text.....
+// //5th testcase---checking compare button text.....
   test('checkin compare button text', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('.add-to-compare-list-button').first()).toContainText('Add to compare list');
@@ -44,7 +44,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
 
 
 
-//6th testcase--- checking title visible before compare in books section  ...
+// //6th testcase--- checking title visible before compare in books section  ...
   test('TC_Compare_06 - Verify product title visible before compare', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('.product-title').first()).toBeVisible();
@@ -52,7 +52,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
   });
 
 
-//7th testcase--- checking product price is visible before compare in books section...
+// //7th testcase--- checking product price is visible before compare in books section...
   test(' product price is visible before compare', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('.prices').first()).toBeVisible();
@@ -61,7 +61,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
 
 
 
-//8th testcase--- checking product image is visible before compare in book section.....
+// //8th testcase--- checking product image is visible before compare in book section.....
   test('product image visible before compare', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('.picture img').first()).toBeVisible();
@@ -70,7 +70,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
 
 
 
-//9th testcase--- checking order page redirects to login page...
+// //9th testcase--- checking order page redirects to login page...
   test('Verify orders page redirects to login page', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/order/history');
     await expect(page).toHaveURL(/login/);
@@ -78,7 +78,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
   });
 
 
-//10th testcase---checking login page opens from order history and checking text......
+// //10th testcase---checking login page opens from order history and checking text......
   test('login page opens from order history', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/order/history');
     await expect(page.locator('h1')).toContainText('Welcome, Please Sign In!');
@@ -86,7 +86,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
   });
 
 
-//11th testcase--- checking order history needs email field ...
+// //11th testcase--- checking order history needs email field ...
   test('order history needs email field', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/order/history');
     await expect(page.locator('#Email')).toBeVisible();
@@ -94,7 +94,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
   });
 
 
-//12th testcase--- verifying order history needs password field...
+// //12th testcase--- verifying order history needs password field...
   test('order history needs password field', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/order/history');
     await expect(page.locator('#Password')).toBeVisible();
@@ -102,7 +102,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
   });
 
 
-//13th testcase--- verifhing order history login button visible
+// //13th testcase--- verifhing order history login button visible
   test('Verify order history login button visible', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/order/history');
     await expect(page.locator('button.login-button')).toBeVisible();
@@ -111,7 +111,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
   });
 
 
-//14th testcase--- verifying forgot password link opens successfully...
+// //14th testcase--- verifying forgot password link opens successfully...
 
 test('checking forgot password link', async ({ page }) => {
 
@@ -127,7 +127,7 @@ test('checking forgot password link', async ({ page }) => {
 
 
 
-//15th testcase --- verifying compare product clear button not visible when list is empty
+// //15th testcase --- verifying compare product clear button not visible when list is empty
   test('compare product clear button not visible when list empty', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/compareproducts');
     await expect(page.locator('.clear-list')).toHaveCount(0);

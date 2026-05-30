@@ -134,9 +134,9 @@
 
     await page.goto('https://demo.nopcommerce.com/apparel');
 
-    await page.getByRole("link",{name:"Shoes"}).nth(1).click();
+    await page.getByRole("link",{name:"Shoes"}).first().click();
 
-    await expect(page.locator('img[title]').first())
+    await expect(page.locator('.picture img').first())
     .toBeVisible();
 
     await page.waitForTimeout(5000);
