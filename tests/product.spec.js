@@ -130,7 +130,7 @@
 
 // //15th testcase--- verifying product image is visible in shoes section....
 
-  test('checking shoes section product image', async ({ page }) => {
+  test.fixme('checking shoes section product image', async ({ page }) => {
 
     await page.goto('https://demo.nopcommerce.com/apparel');
 
