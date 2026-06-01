@@ -24,7 +24,7 @@ test.describe('Wishlist Management - nopCommerce Demo Store', () => {
 
 
 //3rd testcase--- verifying wishlist page url.....
-  test('TC_Wishlist_03 - Verify wishlist page URL', async ({ page }) => {
+  test('Verify wishlist page URL', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/wishlist');
     await expect(page).toHaveURL(/wishlist/);
     await page.waitForTimeout(5000);
@@ -85,7 +85,7 @@ test.describe('Wishlist Management - nopCommerce Demo Store', () => {
 
 
 //9th testcase--- verifying product title visible before adding to wishlist......
-  test('TC_Wishlist_09 - Verify product title visible before adding to wishlist', async ({ page }) => {
+  test('Verify product title visible before adding to wishlist', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('.product-title').first()).toBeVisible();
     await page.waitForTimeout(8000);
@@ -106,7 +106,7 @@ test.describe('Wishlist Management - nopCommerce Demo Store', () => {
 
 
 //11th testcase--- verifying product image visible before adding to wishlist....
-  test('TC_Wishlist_11 - Verify product image visible before adding to wishlist', async ({ page }) => {
+  test('Verify product image visible before adding to wishlist', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('.picture img').first()).toBeVisible();
     await page.waitForTimeout(5000);
@@ -127,7 +127,7 @@ test.describe('Wishlist Management - nopCommerce Demo Store', () => {
 
 
 //13th testcase--- verifying shoes product image visible before wishlist.........
-  test('TC_Wishlist_13 - Verify shoes product image visible before wishlist', async ({ page }) => {
+  test('Verify shoes product image visible before wishlist', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/shoes');
     await expect(page.locator('.picture img').first()).toBeVisible();
     await page.waitForTimeout(4000);
@@ -137,7 +137,7 @@ test.describe('Wishlist Management - nopCommerce Demo Store', () => {
 
 //14th testcase--- verifying email a friend option visible in wishlist page...
 
-test.fixme('TC_Wishlist_14 - Verify email wishlist button visible', async ({ page }) => {
+test.fixme('Verify email wishlist button visible', async ({ page }) => {
 
     await page.goto('https://demo.nopcommerce.com/wishlist');
 

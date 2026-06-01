@@ -20,7 +20,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
 
 
 // //3rd testcase--- checking empty compare list message...
-  test(' empty compare list message', async ({ page }) => {
+  test('empty compare list message', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/compareproducts');
     await expect(page.locator('.no-data')).toBeVisible();
     await page.waitForTimeout(5000);
@@ -45,7 +45,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
 
 
 // //6th testcase--- checking title visible before compare in books section  ...
-  test('TC_Compare_06 - Verify product title visible before compare', async ({ page }) => {
+  test('Verify product title visible before compare', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('.product-title').first()).toBeVisible();
     await page.waitForTimeout(5000);
@@ -53,7 +53,7 @@ test.describe('Compare and Order Management - nopCommerce Demo Store', () => {
 
 
 // //7th testcase--- checking product price is visible before compare in books section...
-  test(' product price is visible before compare', async ({ page }) => {
+  test('product price is visible before compare', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('.prices').first()).toBeVisible();
     await page.waitForTimeout(5000);

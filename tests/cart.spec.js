@@ -17,7 +17,7 @@
 
 
 // //3rd testcase--- verifying cart quantity is visible ..
-  test('TC_Cart_03 - Verify cart quantity is visible', async ({ page }) => {
+  test(' Verify cart quantity is visible', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com');
     await expect(page.locator('.cart-qty')).toBeVisible();
     await page.waitForTimeout(5000);
@@ -50,7 +50,7 @@
   
 
 // //7th testcase--- verifying that product title before adding to cart
-  test('TC_Cart_07 - Verify product title before adding to cart', async ({ page }) => {
+  test('Verify product title before adding to cart', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('.product-title').first()).toBeVisible();
     await page.waitForTimeout(5000);
@@ -74,7 +74,7 @@
 
 
 // //10th testcase--- verifying cart page URL...
-  test('TC_Cart_10 - Verify cart page URL', async ({ page }) => {
+  test('Verify cart page URL', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/cart');
     await expect(page).toHaveURL(/cart/);
     await page.waitForTimeout(4000);
@@ -99,7 +99,7 @@
 
 
 // //13th testcase-- verifying continue shopping button is not visible in empty cart
-  test('TC_Cart_13 - Verify continue shopping button is not visible in empty cart', async ({ page }) => {
+  test('Verify continue shopping button is not visible in empty cart', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/cart');
     await expect(page.locator('.continue-shopping-button')).toHaveCount(0);
     await page.waitForTimeout(5000);

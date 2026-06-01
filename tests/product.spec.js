@@ -83,7 +83,7 @@
 
 
 // //10th testcase verifying  whether jewlery category opening or not
-  test('TC_Product_10 - Verify jewelry category opens', async ({ page }) => {
+  test('Verify jewelry category opens', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/jewelry');
     await page.getByRole("link",{name:"Jewelry"}).first().click();
     await expect(page).toHaveURL(/jewelry/);
@@ -191,7 +191,7 @@ test.skip('checking laptop product price', async ({ page }) => {
 
 
 // //18th testcase-- verifying sort dropdown is visible in books section 
-  test('TC_Product_18 - Verify sort dropdown is visible', async ({ page }) => {
+  test('Verify sort dropdown is visible', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('#products-orderby')).toBeVisible();
     await page.waitForTimeout(5000);
@@ -209,7 +209,7 @@ test.skip('checking laptop product price', async ({ page }) => {
 
 
 // //20th testcase---verifying viewmode dropdown is visible
-  test('TC_Product_20 - Verify view mode dropdown is visible', async ({ page }) => {
+  test('Verify view mode dropdown is visible', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/books');
     await expect(page.locator('.viewmode-icon').first()).toBeVisible();
     await page.waitForTimeout(5000);
