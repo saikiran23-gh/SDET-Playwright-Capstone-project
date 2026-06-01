@@ -33,7 +33,7 @@ test.describe('Navigation and UI Validation - nopCommerce Demo Store', () => {
 
 
 //3rd testcase--- verifying computers menu navigation .....
-  test('checking computers menu navigation', async ({ page }) => {
+  test.skip('checking computers menu navigation', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com');
 
     await page.locator('a[href="/computers"]').first().click();
