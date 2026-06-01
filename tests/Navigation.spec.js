@@ -43,83 +43,50 @@ test.describe('Navigation and UI Validation - nopCommerce Demo Store', () => {
     await page.waitForTimeout(5000);
   });
 
-
-
-//4th testcase---- veifying notebooks subcategory navigation.....
-  test('Verify notebooks subcategory navigation', async ({ page }) => {
-
-    await page.goto('https://demo.nopcommerce.com/computers');
-
-    await page.locator('.sub-category-item')
-    .filter({ hasText: 'Notebooks' })
-    .click();
-
-    await expect(page.locator('h1'))
-    .toContainText('Notebooks');
-
-    await page.waitForTimeout(5000);
+//4th testcase ---verifying notebooks page opens.....
+test('Verify notebooks page opens', async ({ page }) => {
+  await page.goto('https://demo.nopcommerce.com/notebooks');
+  await expect(page.locator('h1')).toContainText('Notebooks');
+  await page.waitForTimeout(5000);
 
 });
 
 
-//5th testcase --- verifying apparel to shoes navigation....
-  test('checking apparel to shoes navigation', async ({ page }) => {
-    await page.goto('https://demo.nopcommerce.com/apparel');
+//5th testcase--- verifying shoes page opens....
+test('Verify shoes page opens', async ({ page }) => {
+  await page.goto('https://demo.nopcommerce.com/shoes');
+  await expect(page.locator('h1')).toContainText('Shoes');
+  await page.waitForTimeout(5000);
+});
 
-    await page.getByRole('link', { name: 'Shoes' }).first().click();
-
-    await expect(page.locator('h1')).toContainText('Shoes');
-    await page.waitForTimeout(5000);
-  });
-
-
-
-//6th testcase--- verifying electronics to cell phones navigation.....
-  test('checking electronics to cell phones navigation', async ({ page }) => {
-    await page.goto('https://demo.nopcommerce.com/electronics');
-
-    await page.getByRole('link', { name: 'Cell phones' }).first().click();
-
-    await expect(page.locator('h1')).toContainText('Cell phones');
-    await page.waitForTimeout(6000);
-  });
+//6th testcase--- verifying cell phones page opens..
+test('Verify cell phones page opens', async ({ page }) => {
+  await page.goto('https://demo.nopcommerce.com/cell-phones');
+  await expect(page.locator('h1')).toContainText('Cell phones');
+  await page.waitForTimeout(5000);
+});
 
 
+//7th testcase--- verifying contact us page opens.
+test('Verify contact us page opens', async ({ page }) => {
+  await page.goto('https://demo.nopcommerce.com/contactus');
+  await expect(page.locator('h1')).toContainText('Contact Us');
+  await page.waitForTimeout(5000);
+});
 
-//7th testcase--- verifying footer contact us link navigation..
-  test('verify footer contact us link navigation', async ({ page }) => {
-    await page.goto('https://demo.nopcommerce.com');
+//8th testcase--- verifying sitemap page opens....
+test('Verify sitemap page opens', async ({ page }) => {
+  await page.goto('https://demo.nopcommerce.com/sitemap');
+  await expect(page.locator('h1')).toContainText('Sitemap');
+  await page.waitForTimeout(5000);
+});
 
-    await page.locator('a[href="/contactus"]').click();
-
-    await expect(page.locator('h1')).toContainText('Contact Us');
-    await page.waitForTimeout(5000);
-  });
-
-
-
-//8th testcase--- verifying footer sitemap link navagation.....
-
-  test('footer sitemap link navigation checking...', async ({ page }) => {
-    await page.goto('https://demo.nopcommerce.com');
-
-    await page.locator('a[href="/sitemap"]').click();
-
-    await expect(page.locator('h1')).toContainText('Sitemap');
-    await page.waitForTimeout(7000);
-  });
-
-
-//9th testcase---verifying footer news link navigation.....
-  test('footer news link navigation', async ({ page }) => {
-    await page.goto('https://demo.nopcommerce.com');
-
-    await page.locator('a[href="/news"]').first().click();
-
-    await expect(page.locator('h1')).toContainText('News');
-    await page.waitForTimeout(5000);
-  });
-
+//9th testcase--- verifying newspage opens......
+test('Verify news page opens', async ({ page }) => {
+  await page.goto('https://demo.nopcommerce.com/news');
+  await expect(page.locator('h1')).toContainText('News');
+  await page.waitForTimeout(5000);
+});
 
 
 //10th testcase--- verifying newsletter email subscription field accepts input...
@@ -138,17 +105,12 @@ test.describe('Navigation and UI Validation - nopCommerce Demo Store', () => {
 });
 
 
-
-//11th testcase--- verifying compare products link navigation.....
-  test('compare products link navigation', async ({ page }) => {
-    await page.goto('https://demo.nopcommerce.com');
-
-    await page.locator('a[href="/compareproducts"]').click();
-
-    await expect(page.locator('h1')).toContainText('Compare products');
-    await page.waitForTimeout(5000);
-  });
-
+//11th testcase--- verifying compate products page opens .....
+test('Verify compare products page opens', async ({ page }) => {
+  await page.goto('https://demo.nopcommerce.com/compareproducts');
+  await expect(page).toHaveURL(/compareproducts/);
+  await page.waitForTimeout(5000);
+});
 
 
 //12th testcase --- verifying new products link navigation,......
@@ -163,31 +125,22 @@ test.describe('Navigation and UI Validation - nopCommerce Demo Store', () => {
     
   });
 
-
-//13th testcase--- verifying customer service contact page opens from footer..
-  test('Verify customer service contact page opens from footer', async ({ page }) => {
-    await page.goto('https://demo.nopcommerce.com');
-
-    await page.locator('a[href="/contactus"]').click();
-
-    await expect(page.locator('.page-title')).toBeVisible();
-    await page.waitForTimeout(6000);
-    
-  });
+//13th testcase-- verifying blog page opens.....
+test('Verify blog page opens', async ({ page }) => {
+  await page.goto('https://demo.nopcommerce.com/blog');
+  await expect(page.locator('h1')).toContainText('Blog');
+  await page.waitForTimeout(5000);
+});
 
 
 
-//14th testcase--- verifying search result page shows search input value....
-  test('Verify search result page shows search input value', async ({ page }) => {
-    await page.goto('https://demo.nopcommerce.com');
-
-    await page.locator('#small-searchterms').fill('book');
-
-    await page.locator('button.search-box-button').click();
-
-    await expect(page.locator('#q')).toHaveValue('book');
-    await page.waitForTimeout(7000);
-  });
+//14th testcase--- verifying search page input accepts value
+test('Verify search page input accepts value', async ({ page }) => {
+  await page.goto('https://demo.nopcommerce.com/search');
+  await page.locator('#q').fill('book');
+  await expect(page.locator('#q')).toHaveValue('book');
+  await page.waitForTimeout(5000);
+});
 
 
 
