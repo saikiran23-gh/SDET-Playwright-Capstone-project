@@ -1,0 +1,165 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Navigation.spec.js >> Navigation and UI Validation - nopCommerce Demo Store >> logo click redirects to home page
+- Location: tests/Navigation.spec.js:8:3
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('.header-logo a')
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - img "Icon for demo.nopcommerce.com" [ref=e5]
+        - heading "demo.nopcommerce.com" [level=1] [ref=e6]
+      - heading "Performing security verification" [level=2] [ref=e7]
+      - paragraph [ref=e8]: This website uses a security service to protect against malicious bots. This page is displayed while the website verifies you are not a bot.
+  - contentinfo [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e16]:
+        - text: "Ray ID:"
+        - code [ref=e17]: a0546a5d2b898263
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - text: Performance and Security by
+          - link "Cloudflare" [ref=e20] [cursor=pointer]:
+            - /url: https://www.cloudflare.com?utm_source=challenge&utm_campaign=m
+        - link "Privacy" [ref=e22] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/privacypolicy/
+```
+
+# Test source
+
+```ts
+  1   | const { test, expect } = require('@playwright/test');
+  2   | 
+  3   | test.describe('Navigation and UI Validation - nopCommerce Demo Store', () => {
+  4   | 
+  5   | 
+  6   | 
+  7   | //1st testcase--- verifying logo click redirects to home page....
+  8   |   test('logo click redirects to home page', async ({ page }) => {
+  9   |     await page.goto('https://demo.nopcommerce.com/books');
+  10  | 
+> 11  |     await page.locator('.header-logo a').click();
+      |                                          ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  12  | 
+  13  |     await expect(page).toHaveURL('https://demo.nopcommerce.com/');
+  14  | 
+  15  |     await page.waitForTimeout(5000);
+  16  |   });
+  17  | 
+  18  | 
+  19  | 
+  20  | //2nd testcase--- verifying search navigates to search results page.....
+  21  |   test('search navigates to search results page', async ({ page }) => {
+  22  |     await page.goto('https://demo.nopcommerce.com');
+  23  | 
+  24  |     await page.locator('#small-searchterms').fill('laptop');
+  25  | 
+  26  |     await page.locator('button.search-box-button').click();
+  27  | 
+  28  |     await expect(page).toHaveURL(/search/);
+  29  | 
+  30  |     await page.waitForTimeout(5000);
+  31  |   });
+  32  | 
+  33  | 
+  34  | 
+  35  | //3rd testcase--- verifying computers menu navigation .....
+  36  |   test.skip('checking computers menu navigation', async ({ page }) => {
+  37  |     await page.goto('https://demo.nopcommerce.com');
+  38  | 
+  39  |     await page.locator('a[href="/computers"]').first().click();
+  40  | 
+  41  |     await expect(page.locator('h1')).toContainText('Computers');
+  42  | 
+  43  |     await page.waitForTimeout(5000);
+  44  |   });
+  45  | 
+  46  | //4th testcase ---verifying notebooks page opens.....
+  47  | test('Verify notebooks page opens', async ({ page }) => {
+  48  |   await page.goto('https://demo.nopcommerce.com/notebooks');
+  49  |   await expect(page.locator('h1')).toContainText('Notebooks');
+  50  |   await page.waitForTimeout(5000);
+  51  | 
+  52  | });
+  53  | 
+  54  | 
+  55  | //5th testcase--- verifying shoes page opens....
+  56  | test('Verify shoes page opens', async ({ page }) => {
+  57  |   await page.goto('https://demo.nopcommerce.com/shoes');
+  58  |   await expect(page.locator('h1')).toContainText('Shoes');
+  59  |   await page.waitForTimeout(5000);
+  60  | });
+  61  | 
+  62  | //6th testcase--- verifying cell phones page opens..
+  63  | test('Verify cell phones page opens', async ({ page }) => {
+  64  |   await page.goto('https://demo.nopcommerce.com/cell-phones');
+  65  |   await expect(page.locator('h1')).toContainText('Cell phones');
+  66  |   await page.waitForTimeout(5000);
+  67  | });
+  68  | 
+  69  | 
+  70  | //7th testcase--- verifying contact us page opens.
+  71  | test('Verify contact us page opens', async ({ page }) => {
+  72  |   await page.goto('https://demo.nopcommerce.com/contactus');
+  73  |   await expect(page.locator('h1')).toContainText('Contact Us');
+  74  |   await page.waitForTimeout(5000);
+  75  | });
+  76  | 
+  77  | //8th testcase--- verifying sitemap page opens....
+  78  | test('Verify sitemap page opens', async ({ page }) => {
+  79  |   await page.goto('https://demo.nopcommerce.com/sitemap');
+  80  |   await expect(page.locator('h1')).toContainText('Sitemap');
+  81  |   await page.waitForTimeout(5000);
+  82  | });
+  83  | 
+  84  | //9th testcase--- verifying newspage opens......
+  85  | test('Verify news page opens', async ({ page }) => {
+  86  |   await page.goto('https://demo.nopcommerce.com/news');
+  87  |   await expect(page.locator('h1')).toContainText('News');
+  88  |   await page.waitForTimeout(5000);
+  89  | });
+  90  | 
+  91  | 
+  92  | //10th testcase--- verifying newsletter email subscription field accepts input...
+  93  |   test('newsletter email subscription field accepts input', async ({ page }) => {
+  94  | 
+  95  |     await page.goto('https://demo.nopcommerce.com');
+  96  | 
+  97  |     await page.locator('#newsletter-email')
+  98  |     .fill('saikiran@gmail.com');
+  99  | 
+  100 | 
+  101 |     await page.locator('#newsletter-subscribe-button')
+  102 |     .click();
+  103 |     await page.waitForTimeout(6000);
+  104 | 
+  105 | });
+  106 | 
+  107 | 
+  108 | //11th testcase--- verifying compate products page opens .....
+  109 | test('Verify compare products page opens', async ({ page }) => {
+  110 |   await page.goto('https://demo.nopcommerce.com/compareproducts');
+  111 |   await expect(page).toHaveURL(/compareproducts/);
+```
